@@ -15,18 +15,45 @@
 			<li class="item">Non eum id facilis inventore.</li>
 			<li class="item">Soluta sed ut dignissimos repudiandae.</li>
 		</ul>
+		<button id="addNew">Add New Button</button>
 	</div>
 	<script>
-			document.getElementById('first').addEventListener('click', function(event) {
-				console.log('first item clicked');
-				event.stopPropagation();
+			// var items = document.getElementsByClassName('item');
+			/**var items = document.getElementsByTagName('li');
+			for (let i = 0; i < items.length; i++) {
+				var item = items[i];
+				// console.log(item);
+				item.addEventListener('click', function(event){
+					// console.log(event.target.innerText);
+					// console.log(event.target.parentNode);
+					event.target.parentNode.removeChild(event.target);
+				})
+			}
+			*/
+
+			document.getElementById('addNew').addEventListener('click', function(event){
+				var itemParent = document.getElementById('myList');
+				var newItem = document.createElement('li');
+				newItem.innerText = 'Brand New Item';
+				itemParent.appendChild(newItem);
 			})
-			document.getElementById('myList').addEventListener('click', function(event) {
+
+			document.getElementById('myList').addEventListener('click', function(event){
+				// console.log(this, event.target);
+				event.target.parentNode.removeChild(event.target);
+
+			})
+			// document.getElementById('first').addEventListener('click', function(event) {
+			// 	console.log('first item clicked');
+			// 	event.stopPropagation();
+			// })
+			/**document.getElementById('myList').addEventListener('click', function(event) {
 				console.log('ul clicked')
 			})
 			document.getElementById('container').addEventListener('click', function(event){
 				console.log('container clicked')
 			})
+			*/
 	</script>
 </body>
 </html>
